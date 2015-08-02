@@ -11,7 +11,6 @@ def image_download(url):
     img_dwn = urllib.request.urlopen(GOODURL + img_url[0])
     img = re.findall(r'<a href=\"(http:\/\/img\d\..*?\.jpg)', str(img_dwn.read()))
     img_name = re.findall(r'([\w+-]{0,}\w+\.jpg)$', img[0])
-    
     image = urllib.request.urlopen(img[0])
     gevent.sleep(0)
     img_file = open(img_name[0], mode='wb')
